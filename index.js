@@ -57,3 +57,34 @@ buttons.forEach(button => {
         }
     });
 });
+
+let numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+let operations = ["*", "-", "+", "/"];
+
+document.querySelector("body").addEventListener("keyup", (e) => {
+    console.log(e.key)
+    if (display.textContent === "0") display.textContent = "";
+    if (numbers.includes(e.key)) {
+        display.textContent += e.key;
+    }
+    if (operations.includes(e.key)) {
+        firstNumber = Number(display.textContent);
+        operator = e.key;
+        display.textContent = "0";
+        document.querySelector(".decimal").disabled = false;
+    }
+    if (e.key === "Enter") {
+        secondNumber = Number(display.textContent);
+        display.textContent = operate(operator, firstNumber, secondNumber);
+    }
+    if (e.key === "Clear") {
+        document.querySelector(".decimal").disabled = false;
+        display.textContent = "0";
+        firstNumber = "";
+        secondNumber = "";
+        operator = "";
+    }
+    if (e.key === ".") {
+        document.querySelector(".decimal").disabled = true;
+    }
+});

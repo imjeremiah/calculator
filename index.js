@@ -22,7 +22,7 @@ let secondNumber;
 function operate(operator, firstNumber, secondNumber) {
     if (operator === "+") return add(firstNumber, secondNumber);
     if (operator === "-") return subtract(firstNumber, secondNumber);
-    if (operator === "*") return multiply(firstNumber, secondNumber);
+    if (operator === "x" || operator === "*") return multiply(firstNumber, secondNumber);
     if (operator === "/") return divide(firstNumber, secondNumber);
 }
 
